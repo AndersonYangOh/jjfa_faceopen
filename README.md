@@ -9,7 +9,7 @@
 * spring+springMVC+mybatis+sqlite；
 
 ## 三、所需依赖
-`<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> <modelVersion>4.0.0</modelVersion><groupId>com.tt</groupId> <artifactId>face</artifactId><version>0.0.1-SNAPSHOT</version><packaging>war</packaging>
+`<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> <modelVersion>4.0.0</modelVersion><groupId>com.tt</groupId> <artifactId>face</artifactId><version>0.0.1-SNAPSHOT</version><packaging>war</packaging>`
   
  	 <parent>
 		<groupId>org.springframework.boot</groupId>
