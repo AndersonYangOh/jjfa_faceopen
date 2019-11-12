@@ -6,17 +6,20 @@
 * 4、在检测到人脸条件下，一键拍照；
 * 5、对人脸部分，调整大小并写成指定目录下的图像文件；
 ## 二、采取架构形式
-* spring+springMVC+mybatis+sqlite；
+* spring+springMVC+mybatis+mysql；
 
 ## 三、所需依赖
-`<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> <modelVersion>4.0.0</modelVersion><groupId>com.tt</groupId> <artifactId>face</artifactId><version>0.0.1-SNAPSHOT</version><packaging>war</packaging>`
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> 
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tt</groupId> 
+	<artifactId>face</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
  	 <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.1.RELEASE</version>
-	</parent>
-  
+	</parent>  
     <properties>
         <spring.version>5.0.5.RELEASE</spring.version>
         <log4j.version>2.8.2</log4j.version>
@@ -25,46 +28,38 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
-        </dependency>
-        
+        </dependency>     
         <!-- swagger -->
         <dependency>
 			<groupId>com.github.xiaoymin</groupId>
 			<artifactId>knife4j-spring-boot-starter</artifactId>
 			<version>1.9.6</version>
-		</dependency>
-                 
+		</dependency>            
         <!-- log4j2 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${log4j.version}</version>
-        </dependency>
-        			        
+        </dependency>			        
 		<dependency> <!-- 引入log4j2依赖 -->  
 			   <groupId>org.springframework.boot</groupId>  
 			   <artifactId>spring-boot-starter-log4j2</artifactId>  
 		</dependency>
-        
-        
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
-        </dependency>
-        
+        </dependency> 
         <!-- jsp支持开启 -->  
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -74,58 +69,49 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-        </dependency>
-        
+	    </dependency>
         <!--  log4j to slf4j bridge -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-        
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
             <version>2.4.2</version>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13-beta-1</version>
             <scope>test</scope>
-        </dependency>
-        
+        </dependency>   
         <dependency>
 		  <groupId>commons-fileupload</groupId>
 		  <artifactId>commons-fileupload</artifactId>
 		  <version>1.4</version>
 		</dependency>
-        
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
-        </dependency>
-        
+        </dependency>  
         <dependency>
 		    <groupId>org.apache.httpcomponents</groupId>
 		    <artifactId>httpclient</artifactId>
 		    <version>4.5.3</version>
 		</dependency>
-		
 		<dependency>
 		    <groupId>org.apache.httpcomponents</groupId>
 		    <artifactId>httpmime</artifactId>
 		    <version>4.5.3</version>
 		</dependency>
-		
 		  <dependency>
 	      <groupId>com.lmax</groupId>
 	      <artifactId>disruptor</artifactId>
 	      <version>3.4.2</version>
 	    </dependency>
-	    
 	    <dependency>
            <groupId>org.xerial</groupId>
            <artifactId>sqlite-jdbc</artifactId>
@@ -136,7 +122,6 @@
            <artifactId>commons-pool2</artifactId>
            <version>2.4.2</version>
        </dependency>
-       
        <!--简化代码的工具包-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -160,13 +145,11 @@
             <artifactId>druid</artifactId>
             <version>1.1.10</version>
         </dependency>
-        
 		<dependency>  
 		    <groupId>com.alibaba</groupId>  
 		    <artifactId>fastjson</artifactId>  
 		    <version>1.2.41</version>  
 		</dependency>
-        
         <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -188,7 +171,6 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
@@ -204,10 +186,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-        <!--     <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-            </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -226,6 +204,6 @@
             </plugin>
         </plugins>
     </build>
-</project>`
+</project>
 
 
